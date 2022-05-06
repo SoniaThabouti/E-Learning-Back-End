@@ -15,10 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ElearningBack.Service.DocStorageService;
 import ElearningBack.message.ResponseMessage ;
 import ElearningBack.message.ResponseFile ;
-import ElearningBack.model.File ;
 import org.springframework.core.io.ByteArrayResource ;
 import org.springframework.http.MediaType ;
-import ElearningBack.exception.ResourceNotFoundException;
 import ElearningBack.model.Doc ;
 @RestController
 @CrossOrigin(origins ="http://localhost:4200")
@@ -42,10 +40,10 @@ public class DocController {
         }
     }
     //delete test rest api
-    @DeleteMapping("/deleteDoc/{id}")
+    @DeleteMapping("/doc/{id}")
     public ResponseEntity <Map<String,Boolean>>  deleteDoc(@PathVariable Long id){
-        Doc doc = docRepository.findById((id))
-                .orElseThrow(() -> new ResourceNotFoundException("test not exists with id:" + id));
+        Optional<Doc> doc = storageService.getDoc(id);
+                //.orElseThrow(() -> new ResourceNotFoundException("test not exists with id:" + id));
         docRepository.delete(doc);
 
         Map<String, Boolean> response = new HashMap<>();
@@ -74,7 +72,7 @@ public class DocController {
     }
     @GetMapping("/downloadDoc/{fileId}")
     public ResponseEntity<ByteArrayResource> downloadDoc(@PathVariable Long fileId){
-        Doc doc = storageService.getDoc(fileId);
+        Doc doc = storageService.getDoc(fileId).get();
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(doc.getType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION,"attachment:filename=\""+doc.getName()+"\"")
@@ -83,7 +81,7 @@ public class DocController {
 
     @GetMapping("/doc/{id}")
     public ResponseEntity<byte[]> getDoc(@PathVariable  Long id) {
-        Doc doc = storageService.getDoc(id);
+        Doc doc = storageService.getDoc(id).get();
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + doc.getName() + "\"")

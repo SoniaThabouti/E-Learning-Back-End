@@ -1,16 +1,12 @@
 package ElearningBack.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 import ElearningBack.model.Doc;
-import ElearningBack.model.Teacher;
-import ElearningBack.model.Test;
-import ElearningBack.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import java.util.Date ;
+
 import java.io.IOException;
 import ElearningBack.repository.DocRepository;
 import org.springframework.util.StringUtils ;
@@ -33,8 +29,8 @@ public class DocStorageService {
     }
 
 
-    public Doc getDoc(Long id) {
-        return docRepository.findById(id).get();
+    public Optional<Doc> getDoc(Long id) {
+        return docRepository.findById(id);
     }
 }
 

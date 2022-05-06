@@ -2,6 +2,7 @@ package ElearningBack.Service;
 
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.stream.Stream;
 import ElearningBack.model.File ;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class FileStorageService {
     }
 
 
-    public File getFile(Long id) {
-        return fileRepository.findById(id).get();
+    public Optional<File> getFile(Long id) {
+        return fileRepository.findById(id);
     }
 }

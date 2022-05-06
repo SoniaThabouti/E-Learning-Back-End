@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @Table(name="events")
 @AllArgsConstructor
-public class Event {
+public class SchoolEvent {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,11 +46,11 @@ public class Event {
     @NotEmpty
     private String Duration;
 
-    public Event() {
+    public SchoolEvent() {
         super();
     }
 
-    public Event(Integer yearEvent,String dayEvent,String monthEvent,String description,String link,String nameEvent,String Duration) {
+    public SchoolEvent(Integer yearEvent, String dayEvent, String monthEvent, String description, String link, String nameEvent, String Duration) {
         this.dayEvent = dayEvent;
         this.monthEvent = monthEvent;
         this.yearEvent = yearEvent;
