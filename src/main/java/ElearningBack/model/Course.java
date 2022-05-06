@@ -61,17 +61,12 @@ public class Course implements Serializable{
        // this.teacher = teacher;
         this.description = descrip ;
     }
-<<<<<<< HEAD
+
 
     public Course() {
     }
 
-=======
-    /**
-     * Course time in Timetable.
-     */
-   
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
     public Long getIdCourse() {
         return idCourse;
     }
@@ -129,10 +124,9 @@ public class Course implements Serializable{
 <<<<<<< HEAD
     this.groupsss = groupsss;
     }**/
-=======
-        this.groupsss = groupsss;
+
+
     }
 
-    
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
-}
+
+

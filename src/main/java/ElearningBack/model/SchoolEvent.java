@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-<<<<<<< HEAD:src/main/java/ElearningBack/model/SchoolEvent.java
+
 @Data
 @Table(name="events")
 @AllArgsConstructor
@@ -38,86 +38,44 @@ public class SchoolEvent {
     @Column(name="monthEvent")
     @NotEmpty
     private String monthEvent;
-=======
-public class Event {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	Long id;
-	
-	String text;
-	
-	LocalDateTime start;
-	
-	LocalDateTime end;
-	
-	@ManyToOne
-	@JsonIgnore
-	TimeInterval TimeI;
-	
-	@JsonProperty("TimeI")
-	public Long getTimeIntervalId() {
-		return TimeI.getId();
-	}
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce:src/main/java/ElearningBack/model/Event.java
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-<<<<<<< HEAD:src/main/java/ElearningBack/model/SchoolEvent.java
     @Column(name="Duration")
     @NotEmpty
     private String Duration;
+    @Column(name="description")
+    @NotEmpty
+    private String Description;
+    @Column(name="link")
+    @NotEmpty
+    private String Link;
+    @Column(name="yearEvent")
+    @NotNull
+    private Long yearEvent;
+    @Column(name="nameEvent")
+    @NotEmpty
+    private String nameEvent;
 
-    public SchoolEvent() {
+
+    public  SchoolEvent() {
         super();
     }
 
-    public SchoolEvent(Integer yearEvent, String dayEvent, String monthEvent, String description, String link, String nameEvent, String Duration) {
+    public SchoolEvent(Long idEvent, String dayEvent, String monthEvent, String description, String link, String nameEvent, String Duration , Long yearEvent) {
+       this.idEvent = idEvent;
         this.dayEvent = dayEvent;
         this.monthEvent = monthEvent;
-        this.yearEvent = yearEvent;
-        this.description = description;
-        this.link = link;
+     this.yearEvent = yearEvent;
+        this.Description = description;
+        this.Link = link;
         this.nameEvent=nameEvent;
         this.Duration=Duration;
     }
-=======
-	public LocalDateTime getStart() {
-		return start;
-	}
 
-	public void setStart(LocalDateTime start) {
-		this.start = start;
-	}
 
-	public LocalDateTime getEnd() {
-		return end;
-	}
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce:src/main/java/ElearningBack/model/Event.java
 
-	public void setEnd(LocalDateTime end) {
-		this.end = end;
-	}
 
-	public TimeInterval getTimeInterval() {
-		return TimeI;
-	}
 
-<<<<<<< HEAD:src/main/java/ElearningBack/model/SchoolEvent.java
     public String getDayEvent() {
         return dayEvent;
     }
@@ -134,28 +92,28 @@ public class Event {
         this.monthEvent = monthEvent;
     }
 
-    public Integer getYearEvent() {
+    public Long getYearEvent() {
         return yearEvent;
     }
 
-    public void setYearEvent(Integer yearEvent) {
+    public void setYearEvent(Long yearEvent) {
         this.yearEvent = yearEvent;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.Description = description;
     }
 
     public String getLink() {
-        return link;
+        return Link;
     }
 
     public void setLink(String link) {
-        this.link = link;
+        this.Link = link;
     }
 
     public String getNameEvent() {
@@ -173,11 +131,9 @@ public class Event {
     public void setDuration(String Duration) {
         Duration = Duration;
     }
-=======
-	public void setTimeInterval(TimeInterval TimeI) {
-		this.TimeI = TimeI;
-	}
+
+
 	
 	
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce:src/main/java/ElearningBack/model/Event.java
+
 }

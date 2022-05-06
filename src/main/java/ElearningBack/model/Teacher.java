@@ -1,19 +1,17 @@
 package ElearningBack.model;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
-<<<<<<< HEAD
-=======
+
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -58,7 +56,7 @@ public class Teacher {
 
 
     //@ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
-<<<<<<< HEAD
+
     // @JsonIgnore
     //@JoinTable( name = "T_Professors_Groups_Associations1",
     // joinColumns = @JoinColumn( name = "idProfessor" ),
@@ -66,7 +64,7 @@ public class Teacher {
     // private Collection<Groupe> groupss;
 
 
-=======
+
    // @JsonIgnore
     //@JoinTable( name = "T_Professors_Groups_Associations1",
            // joinColumns = @JoinColumn( name = "idProfessor" ),
@@ -76,7 +74,7 @@ public class Teacher {
 
     @JsonIgnore
 
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
     @ManyToOne
     @JoinColumn(name = "codeG1")
     private Groupe groupT;
@@ -103,15 +101,12 @@ public class Teacher {
 
 
 
-    public Teacher(String fullName,String emailId,String password,Integer accessCode
-<<<<<<< HEAD
-                   //Collection<Subject> subjectsT
-    ) {
+    public Teacher(String fullName,String emailId,String password,Integer accessCode) {
 
-=======
+
     		//Collection<Subject> subjectsT
-    		) {
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
+
         this.fullName = fullName;
         this.emailId = emailId;
         this.password = password;
@@ -142,11 +137,10 @@ public class Teacher {
 
 
 
-<<<<<<< HEAD
-=======
+
 
     @JsonIgnore
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
     public Groupe getGroupT() {return groupT;}
 
 
@@ -179,15 +173,15 @@ public class Teacher {
     }
 }
 
-<<<<<<< HEAD
+
 //public Collection<Subject> getSubjectsT() {return subjectsT;}
 
 //public void setSubjectsT(Collection<Subject> subjectsT) {this.subjectsT = subjectsT;}
-=======
+
 
     //public Collection<Subject> getSubjectsT() {return subjectsT;}
 
     //public void setSubjectsT(Collection<Subject> subjectsT) {this.subjectsT = subjectsT;}
 
 
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+

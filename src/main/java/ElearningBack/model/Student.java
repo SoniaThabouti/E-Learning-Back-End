@@ -59,7 +59,7 @@ public class Student {
      * Student courses. (Only the current year courses.)
      */
     @JsonIgnore
-<<<<<<< HEAD
+
      @ManyToMany
      @JoinTable(
      name = "student_course",
@@ -68,16 +68,9 @@ public class Student {
      }
      )
      private Collection<Course> coursesS;
-=======
-    @ManyToMany
-    @JoinTable(
-            name = "student_course",
-            joinColumns = { @JoinColumn(name = "studentId") },
-            inverseJoinColumns = { @JoinColumn(name = "courseId"),
-            }
-    )
-    private Collection<Course> coursesS;
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
+
+
     @Column(name="password")
 
     //password not empty and have at least 3 characters
@@ -101,16 +94,13 @@ public class Student {
     }
 
 
-<<<<<<< HEAD
-    public Student(String firstName, String lastName, String email, String password, Groupe group, Integer accessCode
-                   //,Collection<Teacher> teachers
-    ) {
-=======
+
+
 
     public Student(String firstName, String lastName, String email, String password, Groupe group, Integer accessCode
     		//,Collection<Teacher> teachers
     		) {
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
 
         super();
         this.firstName = firstName;
@@ -197,20 +187,9 @@ public class Student {
 
 
 
-<<<<<<< HEAD
-    //@JsonIgnore
-    // public Collection<Teacher> getTeachers() {return teachers;}
-
-    //public void setTeachers(Collection<Teacher> teachers) {this.teachers = teachers;}
-
-=======
-   //@JsonIgnore
-   // public Collection<Teacher> getTeachers() {return teachers;}
-
-    //public void setTeachers(Collection<Teacher> teachers) {this.teachers = teachers;}
 
 
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
 }
 
 

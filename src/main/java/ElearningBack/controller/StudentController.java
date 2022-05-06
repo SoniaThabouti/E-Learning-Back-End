@@ -26,7 +26,7 @@ public class StudentController {
         return studentRepository.findAll();
     }
 
-<<<<<<< HEAD
+
 
     //logging for student (problem here)
     //@PostMapping("/student")
@@ -43,24 +43,10 @@ public class StudentController {
     // }
 
 
-=======
-    //logging for student (problem here)
-     //@PostMapping("/student")
-    //public ResponseEntity<?> connectStudent(@RequestBody Student studentDetails){
-       // System.out.println(studentDetails);
 
-     // Student student = studentRepository.findById(studentDetails.getIdS())
-             //.orElseThrow(() -> new ResourceNotFoundException("Student not exist with id :" + studentDetails.getIdS()));
-      // if (student.getPassword().equals(studentDetails.getPassword()))
-         // return ResponseEntity.ok(student);
-     //  else
-         // return (ResponseEntity<?>) ResponseEntity.internalServerError();
-
-   // }
-     
 
      
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
+
     @GetMapping("/students/{email}/{password}")
     public ResponseEntity<?> getStudentFromEmailAndPassword(@PathVariable String email, @PathVariable String password){
         System.out.println(email+password);

@@ -22,19 +22,19 @@ public class SchoolEventController {
     private SchoolEventRepository schoolEventRepository;
 
     //get all events
-    @GetMapping("/events")
+    @GetMapping("/schoolevents")
     public List<SchoolEvent> getAllEvents(){
         return schoolEventRepository.findAll();
     }
 
     //create a new event rest api
-    @PostMapping("/events")
+    @PostMapping("/schoolevents")
     public SchoolEvent createEvent(@Valid @RequestBody SchoolEvent schoolEvent){
         return schoolEventRepository.save(schoolEvent);
     }
 
     //get event by id rest api & return error if not found
-    @GetMapping("/events/{id}")
+    @GetMapping("/schoolevents/{id}")
     public ResponseEntity<SchoolEvent> getEventById(@PathVariable Long id){
         SchoolEvent schoolEvent = schoolEventRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("event does not exist with this id: "+ id));
@@ -42,7 +42,7 @@ public class SchoolEventController {
     }
 
     //update event rest api
-    @PutMapping("/events/{id}")
+    @PutMapping("/schoolevents/{id}")
     public ResponseEntity<SchoolEvent> updateEvent(@PathVariable Long id, @Valid @RequestBody SchoolEvent schoolEventDetails) {
         SchoolEvent schoolEvent = schoolEventRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("event not exists wih id :" + id));
@@ -60,7 +60,7 @@ public class SchoolEventController {
     }
 
     //delete event rest api
-    @DeleteMapping("/events/{id}")
+    @DeleteMapping("/schoolevents/{id}")
     public ResponseEntity <Map<String,Boolean>>  deleteEvent(@PathVariable Long id){
         SchoolEvent schoolEvent = schoolEventRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("event not exists with id:" + id));
