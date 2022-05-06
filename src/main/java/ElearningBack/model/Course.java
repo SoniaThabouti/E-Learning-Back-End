@@ -17,7 +17,12 @@ import java.util.List;
 @Data
 public class Course implements Serializable{
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCourse;
 
@@ -56,10 +61,17 @@ public class Course implements Serializable{
        // this.teacher = teacher;
         this.description = descrip ;
     }
+<<<<<<< HEAD
 
     public Course() {
     }
 
+=======
+    /**
+     * Course time in Timetable.
+     */
+   
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
     public Long getIdCourse() {
         return idCourse;
     }
@@ -114,6 +126,13 @@ public class Course implements Serializable{
     }
 
     public void setGroupsss(Collection<Groupe> groupsss) {
+<<<<<<< HEAD
     this.groupsss = groupsss;
     }**/
+=======
+        this.groupsss = groupsss;
+    }
+
+    
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
 }

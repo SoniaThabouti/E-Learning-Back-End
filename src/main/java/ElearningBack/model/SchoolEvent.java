@@ -8,7 +8,20 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
+<<<<<<< HEAD:src/main/java/ElearningBack/model/SchoolEvent.java
 @Data
 @Table(name="events")
 @AllArgsConstructor
@@ -25,23 +38,46 @@ public class SchoolEvent {
     @Column(name="monthEvent")
     @NotEmpty
     private String monthEvent;
+=======
+public class Event {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	Long id;
+	
+	String text;
+	
+	LocalDateTime start;
+	
+	LocalDateTime end;
+	
+	@ManyToOne
+	@JsonIgnore
+	TimeInterval TimeI;
+	
+	@JsonProperty("TimeI")
+	public Long getTimeIntervalId() {
+		return TimeI.getId();
+	}
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce:src/main/java/ElearningBack/model/Event.java
 
-    @Column(name="yearEvent")
-    @NotNull
-    private Integer yearEvent;
+	public Long getId() {
+		return id;
+	}
 
-    @Column(name="nameEvent")
-    @NotEmpty
-    private String nameEvent;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Column(name="description")
-    @NotEmpty
-    private String description;
+	public String getText() {
+		return text;
+	}
 
-    @Column(name="link")
-    @NotEmpty
-    private String link;
+	public void setText(String text) {
+		this.text = text;
+	}
 
+<<<<<<< HEAD:src/main/java/ElearningBack/model/SchoolEvent.java
     @Column(name="Duration")
     @NotEmpty
     private String Duration;
@@ -59,15 +95,29 @@ public class SchoolEvent {
         this.nameEvent=nameEvent;
         this.Duration=Duration;
     }
+=======
+	public LocalDateTime getStart() {
+		return start;
+	}
 
-    public Long getIdEvent() {
-        return idEvent;
-    }
+	public void setStart(LocalDateTime start) {
+		this.start = start;
+	}
 
-    public void setIdEvent(Long idEvent) {
-        this.idEvent = idEvent;
-    }
+	public LocalDateTime getEnd() {
+		return end;
+	}
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce:src/main/java/ElearningBack/model/Event.java
 
+	public void setEnd(LocalDateTime end) {
+		this.end = end;
+	}
+
+	public TimeInterval getTimeInterval() {
+		return TimeI;
+	}
+
+<<<<<<< HEAD:src/main/java/ElearningBack/model/SchoolEvent.java
     public String getDayEvent() {
         return dayEvent;
     }
@@ -123,4 +173,11 @@ public class SchoolEvent {
     public void setDuration(String Duration) {
         Duration = Duration;
     }
+=======
+	public void setTimeInterval(TimeInterval TimeI) {
+		this.TimeI = TimeI;
+	}
+	
+	
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce:src/main/java/ElearningBack/model/Event.java
 }

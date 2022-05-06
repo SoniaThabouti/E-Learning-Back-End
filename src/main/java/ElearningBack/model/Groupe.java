@@ -97,13 +97,25 @@ public class Groupe implements Serializable {
     }
 
 
+<<<<<<< HEAD
+=======
+
+    public Collection<Course> getCoursesG() {
+        return coursesG;}
+
+
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
 
     public Collection<Course> getCoursesG() {
      return coursesG;}
 
 
+<<<<<<< HEAD
      public void setCoursesG(Collection<Course> coursesG) {
      this.coursesG = coursesG;
 
 }
+=======
+   
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
 }

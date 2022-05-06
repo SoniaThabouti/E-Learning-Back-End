@@ -34,6 +34,23 @@ public class TeacherController {
     public Teacher createTeacher(@Valid @RequestBody Teacher teacher) {
         return teacherRepository.save(teacher);
     }
+    
+    //login for a teacher
+    @GetMapping("/teachers/{email}/{password}")
+    public ResponseEntity<?> getStudentFromEmailAndPassword(@PathVariable String email, @PathVariable String password){
+        System.out.println(email+password);
+
+      
+  
+      Teacher teacher = teacherRepository.getTeacherFromEmailAndPassword(email, password);
+   		   //.orElseThrow(() -> new ResourceNotFoundException("Student not exist with id :" + idS));
+      System.out.println(teacher);
+       //if (student.getPassword().equals(password))
+          return ResponseEntity.ok(teacher);
+       //else
+          //return (ResponseEntity<?>) ResponseEntity.internalServerError();
+
+    }
 
     //login for a teacher
     @GetMapping("/teachers/{email}/{password}")
@@ -70,6 +87,19 @@ public class TeacherController {
         teacher.setEmailId(teacherDetails.getEmailId());
 
         teacher.setFullName(teacherDetails.getFullName());
+<<<<<<< HEAD
+=======
+        teacher.setAccessCode(teacherDetails.getAccessCode());
+        teacher.setPassword(teacherDetails.getPassword());
+
+        teacher.setFullName(teacherDetails.getFullName());;
+        teacher.setAccessCode(teacherDetails.getAccessCode());
+        teacher.setPassword(teacherDetails.getPassword());
+        teacher. setGroupT(teacherDetails.getGroupT());
+        //teacher.setStudentss(teacherDetails.getStudentss());
+
+        teacher.setFullName(teacherDetails.getFullName());;
+>>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
         teacher.setAccessCode(teacherDetails.getAccessCode());
         teacher.setPassword(teacherDetails.getPassword());
 
