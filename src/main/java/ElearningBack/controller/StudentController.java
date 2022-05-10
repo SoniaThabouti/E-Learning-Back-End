@@ -1,6 +1,7 @@
 package ElearningBack.controller;
 
 import ElearningBack.exception.ResourceNotFoundException;
+import ElearningBack.model.Course;
 import ElearningBack.model.Student;
 import ElearningBack.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +79,20 @@ public class StudentController {
         return ResponseEntity.ok(student);
     }
 
+    @GetMapping("/studentlist/{id}")
+    public ResponseEntity<?> getStudentByGroup(@PathVariable Long id) {
+        System.out.println(id);
+
+
+        List<Student> student = studentRepository.getstudentbygroup(id);
+        //.orElseThrow(() -> new ResourceNotFoundException("Student not exist with id :" + idS));
+        System.out.println(student);
+        //if (student.getPassword().equals(password))
+        return ResponseEntity.ok(student);
+        //else
+        //return (ResponseEntity<?>) ResponseEntity.internalServerError();**/
+
+    }
     //update student rest api
     @PutMapping("/students/{id}")
     public ResponseEntity<Student> updateStudent( @PathVariable Long id,@Valid @RequestBody Student studentDetails) {
@@ -87,7 +102,7 @@ public class StudentController {
         student.setFirstName(studentDetails.getFirstName());
         student.setLastName(studentDetails.getLastName());
         student.setEmailId(studentDetails.getEmailId());
-        student.setGroup(studentDetails.getGroup());
+
         student.setPassword(studentDetails.getPassword());
         student.setAccessCode(studentDetails.getAccessCode());
         //  student.setTeachers(studentDetails.getTeachers());

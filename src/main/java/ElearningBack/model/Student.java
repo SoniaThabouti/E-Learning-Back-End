@@ -49,16 +49,11 @@ public class Student {
 
 
 
-    @ManyToOne
-    @JoinColumn(name = "idG")
-    //@Size(max=1, message="groups are one length characters!")
-
-    private Groupe group;
 
     /**
      * Student courses. (Only the current year courses.)
      */
-    @JsonIgnore
+   /** @JsonIgnore
 
      @ManyToMany
      @JoinTable(
@@ -67,7 +62,7 @@ public class Student {
      inverseJoinColumns = { @JoinColumn(name = "courseId"),
      }
      )
-     private Collection<Course> coursesS;
+     private Collection<Course> coursesS;**/
 
 
 
@@ -107,7 +102,7 @@ public class Student {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.group= group;
+
         this.accessCode = accessCode;
 
 
@@ -170,11 +165,9 @@ public class Student {
     //@JsonIgnore !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-    public Groupe getGroup() { return group; }
-
-    public void setGroup(Groupe group) { this.group = group; }
 
 
+/**
     @JsonIgnore
     public Collection<Course> getCoursesS() {
     return coursesS;
@@ -183,7 +176,7 @@ public class Student {
     public void setCoursesS(Collection<Course> coursesS) {
     this.coursesS = coursesS;
     }
-
+**/
 
 
 

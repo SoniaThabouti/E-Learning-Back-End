@@ -1,7 +1,5 @@
 package ElearningBack.Service;
 
-import java.util.Optional;
-
 import ElearningBack.model.Doc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +27,8 @@ public class DocStorageService {
     }
 
 
-    public Optional<Doc> getDoc(Long id) {
-        return docRepository.findById(id);
+    public Doc getDoc(Long id) {
+        return docRepository.findById(id).get();
     }
 }
 

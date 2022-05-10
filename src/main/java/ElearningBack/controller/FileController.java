@@ -73,7 +73,7 @@ public class FileController {
     }
     @GetMapping("/downloadFile/{fileId}")
     public ResponseEntity<ByteArrayResource> downloadFile(@PathVariable Long fileId){
-    File test = storageService.getFile(fileId).get();
+    File test = storageService.getFile(fileId);
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(test.getType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION,"attachment:filename=\""+test.getName()+"\"")
@@ -87,7 +87,7 @@ public class FileController {
 
     
     public ResponseEntity<byte[]> getFile(@PathVariable  Long id) {
-       File fileDB = storageService.getFile(id).get();
+       File fileDB = storageService.getFile(id);
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")

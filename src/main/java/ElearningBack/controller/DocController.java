@@ -42,7 +42,7 @@ public class DocController {
     //delete test rest api
     @DeleteMapping("/doc/{id}")
     public ResponseEntity <Map<String,Boolean>>  deleteDoc(@PathVariable Long id){
-        Optional<Doc> doc = storageService.getDoc(id);
+       Doc doc = storageService.getDoc(id);
                 //.orElseThrow(() -> new ResourceNotFoundException("test not exists with id:" + id));
         docRepository.delete(doc);
 
@@ -72,7 +72,7 @@ public class DocController {
     }
     @GetMapping("/downloadDoc/{fileId}")
     public ResponseEntity<ByteArrayResource> downloadDoc(@PathVariable Long fileId){
-        Doc doc = storageService.getDoc(fileId).get();
+        Doc doc = storageService.getDoc(fileId);
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(doc.getType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION,"attachment:filename=\""+doc.getName()+"\"")
@@ -81,7 +81,7 @@ public class DocController {
 
     @GetMapping("/doc/{id}")
     public ResponseEntity<byte[]> getDoc(@PathVariable  Long id) {
-        Doc doc = storageService.getDoc(id).get();
+        Doc doc = storageService.getDoc(id);
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + doc.getName() + "\"")

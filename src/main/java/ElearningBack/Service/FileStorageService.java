@@ -30,7 +30,7 @@ public class FileStorageService {
     }
 
 
-    public Optional<File> getFile(Long id) {
-        return fileRepository.findById(id);
+    public File getFile(Long id) {
+        return fileRepository.findById(id).get();
     }
 }

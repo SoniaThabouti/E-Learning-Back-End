@@ -34,23 +34,17 @@ public class Groupe implements Serializable {
     @NotNull
     private Integer levelG;
 
-    @Column(name="studentsG")
-    @OneToMany(mappedBy ="group",fetch = FetchType.LAZY)
-    private Collection<Student> studentss;
+    //@JsonIgnore
+    @OneToMany(targetEntity = Student.class,cascade = CascadeType.ALL)
+    @JoinColumn(name ="student_group",referencedColumnName = "idG")
+    private Collection<Student> studentss ;
 
 
     /**
      * Group courses. (Only the current year courses.)
      */
-     @JsonIgnore
-     @ManyToMany
-     @JoinTable(
-     name = "group_course",
-     joinColumns = { @JoinColumn(name = "studentId") },
-     inverseJoinColumns = { @JoinColumn(name = "courseId"),
-     }
-     )
-     private Collection<Course> coursesG;
+
+
 
 
 
@@ -87,7 +81,7 @@ public class Groupe implements Serializable {
         this.levelG = levelG;
     }
 
-    @JsonIgnore
+
     public Collection<Student> getStudentss() {
         return studentss;
     }
@@ -97,25 +91,11 @@ public class Groupe implements Serializable {
     }
 
 
-<<<<<<< HEAD
-=======
-
-    public Collection<Course> getCoursesG() {
-        return coursesG;}
 
 
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
-
-    public Collection<Course> getCoursesG() {
-     return coursesG;}
 
 
-<<<<<<< HEAD
-     public void setCoursesG(Collection<Course> coursesG) {
-     this.coursesG = coursesG;
+
 
 }
-=======
-   
->>>>>>> 5f23b1afecb268b1dd3bf384061e2cfb1d91ecce
-}
+

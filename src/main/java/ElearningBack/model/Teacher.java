@@ -55,6 +55,7 @@ public class Teacher {
     private Collection<Course> coursesT ;
 
 
+
     //@ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
 
     // @JsonIgnore
@@ -171,6 +172,8 @@ public class Teacher {
     public void setCoursesT(Collection<Course> coursesT) {
         this.coursesT = coursesT;
     }
+
+
 }
 
 
